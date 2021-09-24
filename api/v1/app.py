@@ -12,8 +12,8 @@ import re, string
 
 #x = pd.DataFrame(base_treinamento)
 #x.to_csv(path_or_buf='dataset/train_dataset.csv', header=['Frase', 'Sentimento'], index=False)
-#nltk.download('stopwords')
-#nltk.download('rslp')
+nltk.download('stopwords')
+nltk.download('rslp')
 
 def getDatasetLength(dataframe):
     return dataframe.shape[0]
@@ -91,10 +91,10 @@ def extrator_palavras_teste(documento):
         caracteristicas['%s' % palavras] = (palavras in doc)
     return caracteristicas
 
-base_treinamento = pd.read_csv('dataset/train_dataset.csv', encoding='utf-8') 
+base_treinamento = pd.read_csv('/emotion_detect_api/api/v1/dataset/train_dataset.csv', encoding='utf-8') 
 base_treinamento.columns = ['Frase', 'Sentimento']
 
-base_teste = pd.read_csv('dataset/test_dataset.csv', encoding='utf-8') 
+base_teste = pd.read_csv('/emotion_detect_api/api/v1/dataset/test_dataset.csv', encoding='utf-8') 
 base_teste.columns = ['Frase', 'Sentimento']
 
 stopwordsPt = nltk.corpus.stopwords.words('portuguese')
@@ -185,4 +185,4 @@ def analyze(phrase):
         
     #    print('%s: %f' % (classe, distribuicao.prob(classe)))
 
-print(analyze("amor paixão apaixonado criança felicidade"))
+# print(analyze("amor paixão apaixonado criança felicidade"))
