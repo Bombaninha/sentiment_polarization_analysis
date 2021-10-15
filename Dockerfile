@@ -14,6 +14,12 @@ WORKDIR $INSTALL_PATH
 
 RUN pip install flask pandas matplotlib nltk flask_restful
 
+# Download de stopwords
+RUN nltk.download('stopwords')
+
+# Download do stem da lingua portuguesa
+RUN nltk.download('rslp')
+
 # Seta as permissões da pasta
 RUN chmod -R 777 $INSTALL_PATH
 
